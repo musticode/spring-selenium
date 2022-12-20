@@ -58,10 +58,6 @@ To be added under plugin section
 
 ### WebDriverWait Update
 Note: WebDriverWait Update
-Dear All,
-There is a small change in the WebDriverWait instance creation.
-
-
 
 Older Versions:
 
@@ -87,9 +83,9 @@ mvn clean test -Dspring.profiles.active=qa
 Running Selenium Grid
 Docker Users:
 
-I would suggest you to use docker for selenium grid if possible.
 
-Save this content in a file called - docker-compse.yaml
+
+Save this content in a file called - docker-compose.yml
 ```
 version: "3"
 services:
@@ -178,7 +174,6 @@ https://medium.com/@iamfaisalkhatri/parallel-execution-of-tests-using-selenium-g
     </configuration>
 </plugin>
 ```
-- Check this. Your classes should have annotations from appropriate packages.
 ```
 @SpringBootTest
 @RunWith(SpringRunner.class) // import org.junit.runner.RunWith;
@@ -206,9 +201,7 @@ public class Google1Test  {
 
 
 #### @Component Beans using Application Context
-Sometimes you might have an interface with multiple implementations, For ex: Car interface with Accord and Civic implementations.
 
-If you need 1 instance dynamically using application context, then we have to do as shown here.
 ```
 @Autowired
 private ApplicationContext ctx;
@@ -220,9 +213,6 @@ Car car1 = this.ctx.getBean(Accord.class); // to get accord bean
 Car car2 = this.ctx.getBean(Civic.class);  // to get civic bean
 ```
 Suggestion:
-
-I would suggest you to go with Factory Pattern approach as that is the right way to do it in situations like this.
-
 Notes: <br>
 > Bean Scope
 > - Singleton
@@ -263,12 +253,6 @@ public Object[][] getData() throws IOException {
 ```
 
 #### Note: Entity Class Name Change
-Dear All,
-
-In the following lectures, I would create a table and a class called "User".
-Unfortunately , in the later versions of H2 DB, "User" became a keyword which started breaking things. So I had to change the name to "Customer". So, please start using Customer. You can check GitHub for reference if you run into issues.
-
-For ex: A SQL I create in the next lecture would become like this.
 
 Older versions (Spring version < 2.5):
 ```
@@ -280,16 +264,13 @@ New Versions (Spring version > 2.5):
 DROP TABLE IF EXISTS customer;
 CREATE TABLE customer AS SELECT * FROM CSVREAD('classpath:tables/user_visa.csv');
 ```
-Thanks.
+
 
 
 Additional Property
-Dear All,
+
 
 There seems to be a recent change in Spring Boot. Check your Spring Version. if it is >= 2.5, then add this property in your application.properties to make the following lectures work.
 ```
 spring.jpa.defer-datasource-initialization=true
 ```
-Thanks.
-
-122 - visa reg2
